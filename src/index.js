@@ -25,6 +25,4 @@ async function lerArquivo (localDoArquivo) {
   }
 }
 
-// lerArquivo('./file/texto.md');
-
 export default lerArquivo
