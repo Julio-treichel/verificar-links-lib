@@ -8,7 +8,7 @@ function extraiLinks(texto) {
   while ((temp = regex.exec(texto)) !== null) {
     listaDeLinks.push({ [temp[1]] : temp[2] })
   }
-  return listaDeLinks;
+  return listaDeLinks.length === 0 ? 'não há links' : listaDeLinks;
 }
 
 function terr (erro) {
@@ -19,7 +19,7 @@ async function lerArquivo (localDoArquivo) {
   const encoding = 'utf-8';
   try {
     const texto = await fs.promises.readFile(localDoArquivo, encoding);
-    console.log(extraiLinks(texto));
+    return extraiLinks(texto);
   } catch(e) {
     terr(e);
   }
